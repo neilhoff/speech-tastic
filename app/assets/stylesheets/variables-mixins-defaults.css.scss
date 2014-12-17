@@ -1,0 +1,197 @@
+// Fonts
+@import url(http://fonts.googleapis.com/css?family=Raleway:500,600,700,400,100,200,300); //14px = 1em
+
+$font-default:            'Raleway', sans-serif;
+$font-header:             'Raleway', sans-serif;
+
+$h1-font:                 $font-header;
+$h1-font-weight:          100;
+$h1-font-size:            4em;
+
+$h2-font:                 $font-header;
+$h2-font-weight:          100;
+$h2-font-size:            3em;
+
+$h3-font:                 $font-header;
+$h3-font-weight:          400;
+$h3-font-size:            2em;
+
+$h4-font:                 $font-header;
+$h4-font-weight:          400;
+$h4-font-size:            1.5em;
+
+$paragraph-font:          $font-default;
+$paragraph-font-weight:   400;
+$paragraph-font-size:     1em;
+
+
+// Colors
+// Theme from: kuler.adobe.com/#themes/rating?time=30
+$blue-gray:         #2C3744;
+$pink:              #DC254F;
+$dark-blue:         #1E282C;
+$light-blue:        #5A9FA3;
+$blue-green:        #2B4946;
+
+$color-text:        #555555;
+$color-background:  #ffffff;
+$color-border:      lighten(#555555, 50%);
+
+
+// Mix-ins
+
+@mixin border-radius($radius, $bg-color:"transparent") {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+  background-color: $bg-color;
+}
+
+@mixin transition($transition-property, $transition-time) {
+  -webkit-transition: $transition-property $transition-time ;
+  -moz-transition: $transition-property $transition-time;
+  -ms-transition: $transition-property $transition-time;
+  -o-transition: $transition-property $transition-time;
+  transition: $transition-property $transition-time;
+}
+
+
+body{
+  color: $color-text;
+  padding-top: 40px;
+  font-family: $paragraph-font;
+}
+
+p {
+  font-family: $paragraph-font;
+  font-weight: $paragraph-font-weight;
+  font-size: $paragraph-font-size;
+}
+
+h1 {
+  font-family: $h1-font;
+  font-weight: $h1-font-weight;
+  font-size: $h1-font-size;
+}
+
+h2 {
+  font-family: $h2-font;
+  font-weight: $h2-font-weight;
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-family: $h3-font;
+  font-weight: $h3-font-weight;
+  font-size: $h3-font-size;
+  padding: 0.5em;
+}
+
+h4 {
+  font-family: $h4-font;
+  font-weight: $h4-font-weight;
+  font-size: $h4-font-size;
+}
+
+.navbar-brand {
+  padding-top: 0px;
+}
+
+.text-vertical-center {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.page-info {
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  .page-title-container {
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    .page-title {
+      @extend .text-vertical-center;
+      text-align: center;
+      width: 150px;
+      height: 150px;
+
+    }
+  }
+  .page-desc-container {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    .page-desc {
+      text-align: center;
+    }
+  }
+
+}
+
+.circle {
+  @include border-radius(50%);
+}
+
+.circle-pink {
+  @include border-radius(50%, $pink);
+  color: white;
+}
+
+.circle-blue-gray{
+  @include border-radius(50%, $blue-gray);
+  color: white;
+}
+
+.circle-light-blue{
+  @include border-radius(50%, $light-blue);
+  color: white;
+}
+
+.btn-pink {
+  //@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  @include button-variant(white, $pink, $pink);
+}
+
+.btn-blue-green {
+  //@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  @include button-variant(white, $blue-green, $blue-green);
+}
+
+.btn-blue-gray {
+  //@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  @include button-variant(white, $blue-gray, $blue-gray);
+}
+
+.btn-light-blue {
+  //@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  @include button-variant(white, $light-blue, $light-blue);
+}
+
+.btn-dark-blue {
+  //@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  @include button-variant(white, $dark-blue, $dark-blue);
+}
+
+ul.social-buttons {
+  margin-bottom: 0;
+  text-align: center;
+  li {
+    a {
+      display: block;
+      width: 40px;
+      height: 40px;
+      @include border-radius(50%, white);
+      color: $color-text;
+      font-size: 20px;
+      line-height: 40px;
+      @include transition(all, 0.3s);
+      &:hover {
+        background-color: $pink;
+        color: white;
+      }
+    }
+  }
+}

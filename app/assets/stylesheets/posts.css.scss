@@ -1,3 +1,28 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#latest-posts {
+  margin-top: 10px;
+  .post {
+    p.desc {
+      @extend .text-left;
+      font-size: 1.4em;
+      margin-top: 10px;
+    }
+  }
+}
+
+.show-post {
+  @extend .center-block;
+  width: 600px;
+  .title {
+    @extend .text-center;
+  }
+  p.desc {
+    margin-top: 10px;
+    font-size: 1.4em;
+  }
+  .socialcount {
+    margin-top: 1em;
+    width: 335px;
+    @extend .center-block;
+  }
+}
+

@@ -156,5 +156,4 @@ describe PostsController do
       expect(response).to redirect_to(posts_url)
     end
   end
-
 end
