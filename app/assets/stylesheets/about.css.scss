@@ -1,0 +1,25 @@
+#about {
+  margin-top: 10px;
+  #what-we-do {
+    margin-bottom: 5em;
+    h3 {
+      background-color: $blue-gray;
+    }
+    p {
+      font-size: 1.5em;
+    }
+  }
+
+  #who-we-are {
+    margin-top: 3em;
+    img.us {
+      width: 100%;
+    }
+    .heading {
+      margin-bottom: 2em;
+      padding: 0.5em;
+      background-color: $blue-green;
+      color: white;
+    }
+  }
+}

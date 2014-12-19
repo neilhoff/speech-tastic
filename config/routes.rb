@@ -1,6 +1,7 @@
 SpeechTastic::Application.routes.draw do
   resources :posts
 
+  get "pages/about"
   get "pages/home"
   root to: "pages#home"
 

@@ -13,7 +13,9 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'socialcount-with-icons.min';
 @import 'variables-mixins-defaults';
 @import 'home';
 @import 'posts';
-@import 'socialcount-with-icons.min';
+@import 'about';
+
