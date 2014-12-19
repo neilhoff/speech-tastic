@@ -131,6 +131,17 @@ h4 {
 
 }
 
+ul.admin-edits {
+  margin-top: 20px;
+  margin-right: 100px;
+  float: right;
+  li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+  }
+}
+
 .circle {
   @include border-radius(50%);
 }
