@@ -1,4 +1,6 @@
 SpeechTastic::Application.routes.draw do
+  resources :products
+
   resources :posts
 
   get "pages/about"
