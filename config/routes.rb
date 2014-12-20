@@ -1,4 +1,6 @@
 SpeechTastic::Application.routes.draw do
+
+  resources :products, :path => "store"
   resources :products
 
   resources :posts

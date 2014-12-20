@@ -1,37 +1,37 @@
-<h1>Listing products</h1>
+<div class="container">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th>Link</th>
-      <th>Category</th>
-      <th>Type</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <div id="store">
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.title %></td>
-        <td><%= product.description %></td>
-        <td><%= product.image_url %></td>
-        <td><%= product.link %></td>
-        <td><%= product.category %></td>
-        <td><%= product.type %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="page-info">
+      <div class="page-title-container">
+        <h2 class="page-title circle-blue-gray">Store</h2>
+      </div>
+      <div class="page-desc-container">
+        <h4 class="page-desc">Speech-Tastic prides itself in creating great teaching materials at a great price</h4>
+      </div>
+    </div>
 
-<br>
+    <%= link_to 'New Product', new_product_path, class: 'btn btn-success'%>
 
-<%= link_to 'New Product', new_product_path %>
+    <h3 class="product-group-title">Lesson Plans</h3>
+    <div class="product-group">
+      <% @products.each do |product| %>
+          <div class="product">
+            <div class="product-info">
+              <%= image_tag product.image_url, class: "center-block"%>
+              <div class="title"><%= product.title %></div>
+              <p class="desc"><%= product.description %></p>
+            </div>
+
+            <a href="<%= product.link %>" class="btn btn-product">Learn More</a>
+            <ul class="admin-store-edits">
+              <li><%= link_to 'Edit', edit_product_path(product), class: 'btn btn-default' %></li>
+              <li><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></li>
+            </ul>
+          </div>
+
+      <% end %>
+    </div>
+
+  </div>
+</div>

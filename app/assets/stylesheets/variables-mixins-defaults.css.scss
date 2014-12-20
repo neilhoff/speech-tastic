@@ -141,6 +141,11 @@ ul.admin-edits {
     padding-right: 20px;
   }
 }
+ul.admin-store-edits {
+  @extend ul.admin-edits;
+  margin-right: 0;
+  float: none;
+}
 
 .circle {
   @include border-radius(50%);

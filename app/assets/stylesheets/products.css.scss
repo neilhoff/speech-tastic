@@ -1,3 +1,56 @@
-// Place all the styles related to the Products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#store {
+  margin-top: 10px;
+  .product-group-title {
+    background: $blue-green;
+    color: white;
+  }
+  .product-group {
+    text-align: center;
+    margin: 0 auto;
+    @extend .container;
+    .product {
+      margin-right: 1em;
+      margin-bottom: 2em;
+      max-width: 280px;
+      padding: 10px;
+      //border: 1px solid $color-border;
+      display: inline-block;
+      vertical-align: top;
+      @include border-radius(10px);
+      .product-info {
+        height: 250px;
+        img {
+          @include border-radius(20px);
+          width: 75px;
+          height: 75px;
+        }
+
+        .title {
+          padding: 10px;
+          font-size: 1.2em;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+        p {
+          max-height: 80px;
+          text-align: left;
+          overflow: hidden;
+          margin-bottom: 30px;
+        }
+      }
+
+      .btn-product {
+        @include button-variant(white, $light-blue, $light-blue);
+        &:hover {
+          @include button-variant(white, $pink, $pink);
+        }
+
+      }
+      &:hover {
+
+      }
+    }
+  }
+}
