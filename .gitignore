@@ -18,3 +18,6 @@
 # Ignore Rubymine files
 .idea
 
+# Ignore Cloudinary yml file
+/config/cloudinary.yml
+

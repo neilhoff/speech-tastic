@@ -13,6 +13,14 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'  # Recommended for Bootstrap Sass
 
+# Image upload and manipulation
+gem 'carrierwave'
+gem 'cloudinary'
+
+# WYSIWYG
+gem 'ckeditor'
+gem 'mini_magick'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

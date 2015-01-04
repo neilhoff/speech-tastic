@@ -1,5 +1,6 @@
 SpeechTastic::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   resources :products, :path => "store"
   resources :products
 
