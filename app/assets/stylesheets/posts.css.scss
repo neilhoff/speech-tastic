@@ -32,7 +32,10 @@
 #post-form {
   @extend .center-block;
   width: 600px;
-  .cancel {
+  .btn-cancel {
+    margin-top: 10px;
+  }
+  .btn-show {
     margin-top: 10px;
   }
 }
