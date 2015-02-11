@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.1.2"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
@@ -54,6 +56,10 @@ group :test do
   gem 'shoulda-matchers'
   gem 'faker'
   gem 'database_cleaner'
+end
+
+group :development, :test do
+  gem 'pry'
 end
 
 # Use ActiveModel has_secure_password
