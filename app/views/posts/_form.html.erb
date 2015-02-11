@@ -11,15 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.cktext_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <%= f.text_field :title, class: "form-control", id: "title"%>
+    </div>
+
+    <div class="form-group">
+      <label for="content">Content</label>
+      <%= f.cktext_area :content, class: "form-control", id: "content"%>
+    </div>
+
+    <%= f.submit class: "btn btn-success" %>
+
+
 <% end %>

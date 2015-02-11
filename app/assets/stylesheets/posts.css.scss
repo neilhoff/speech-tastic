@@ -29,3 +29,11 @@
   }
 }
 
+#post-form {
+  @extend .center-block;
+  width: 600px;
+  .cancel {
+    margin-top: 10px;
+  }
+}
+
