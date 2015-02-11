@@ -1,14 +1,11 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
+<div id="post">
+  <h1><%= @post.title %></h1>
+  <p class="date"><%= @post.created_at.strftime('%B %e at %l:%M %p') %></p>
+  <%= image_tag "test-blog-image.png", class: "featured-image"%>
   <%= @post.content.html_safe %>
-</p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+  <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default btn-edit" %>
+</div>
+
+

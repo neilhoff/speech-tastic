@@ -10,32 +10,51 @@
 
     }
   }
+  .show-post {
+    @extend .center-block;
+    width: 600px;
+    .title {
+      @extend .text-center;
+    }
+    p.desc {
+      margin-top: 10px;
+      font-size: 1.4em;
+    }
+    .socialcount {
+      margin-top: 1em;
+      width: 335px;
+      @extend .center-block;
+    }
+  }
 }
 
-.show-post {
-  @extend .center-block;
-  width: 600px;
-  .title {
-    @extend .text-center;
-  }
-  p.desc {
-    margin-top: 10px;
-    font-size: 1.4em;
-  }
-  .socialcount {
-    margin-top: 1em;
-    width: 335px;
-    @extend .center-block;
-  }
-}
 
 #post-form {
   @extend .center-block;
-  width: 600px;
+  width: $content-width-large;
   .btn-cancel {
     margin-top: 10px;
   }
   .btn-show {
+    margin-top: 10px;
+  }
+}
+
+#post {
+  @extend .center-block;
+  width: $content-width-large;
+  h1 {
+    @extend .text-center;
+  }
+  .date {
+    @extend .text-center;
+  }
+  .featured-image {
+    display: block;
+    margin: auto;
+  }
+
+  .btn-edit {
     margin-top: 10px;
   }
 }
