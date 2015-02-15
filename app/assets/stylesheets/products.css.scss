@@ -54,3 +54,8 @@
     }
   }
 }
+
+#product-show {
+  @extend .center-block;
+  width: $content-width-large;
+}

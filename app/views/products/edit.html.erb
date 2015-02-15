@@ -1,6 +1,8 @@
-<h1>Editing product</h1>
+<div id="post-form">
+    <h1>Editing product</h1>
 
-<%= render 'form' %>
+    <%= render 'form' %>
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+  <%= link_to 'Show', @product, class: "btn btn-warning btn-show" %>
+  <%= link_to 'Cancel', products_path, class: "btn btn-danger btn-cancel" %>
+</div>

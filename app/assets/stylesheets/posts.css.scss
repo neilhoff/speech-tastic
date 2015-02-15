@@ -29,17 +29,6 @@
 }
 
 
-#post-form {
-  @extend .center-block;
-  width: $content-width-large;
-  .btn-cancel {
-    margin-top: 10px;
-  }
-  .btn-show {
-    margin-top: 10px;
-  }
-}
-
 #post {
   @extend .center-block;
   width: $content-width-large;
