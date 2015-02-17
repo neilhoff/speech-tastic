@@ -1,18 +1,24 @@
 #store {
   margin-top: 10px;
   .product-group-title {
-    background: $blue-green;
+    font-weight: 100;
     color: white;
+    text-align: left;
+
   }
   .product-group {
     text-align: center;
     margin: 0 auto;
+    background: $blue-gray;
+    padding-top: 20px;
+    @include border-radius(10px);
     @extend .container;
     .product {
       margin-right: 1em;
       margin-bottom: 2em;
       max-width: 280px;
       padding: 10px;
+      background-color: white;
       //border: 1px solid $color-border;
       display: inline-block;
       vertical-align: top;
@@ -27,7 +33,7 @@
 
         .title {
           padding: 10px;
-          font-size: 1.2em;
+          font-size: 1.8em;
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
