@@ -1,13 +1,27 @@
 #latest-posts {
   margin-top: 10px;
   .post {
+    max-width: 800px;
+    margin: 0.5em auto;
+    h2 {
+      @extend .text-center;
+    }
+    p.date {
+      @extend .text-center;
+    }
     p.desc {
-      @extend .text-left;
       font-size: 1.4em;
       margin-top: 10px;
       max-height: 200px;
       overflow: hidden;
 
+    }
+    .socialcount {
+      max-width: 80px;
+      margin-top: 1em;
+     li {
+       margin: 0.5em 0;
+     }
     }
   }
   .show-post {
