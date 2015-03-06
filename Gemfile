@@ -20,7 +20,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 
 # WYSIWYG
-gem 'ckeditor'
+gem 'ckeditor', '4.1.0'
 gem 'mini_magick'
 
 # Use Uglifier as compressor for JavaScript assets
