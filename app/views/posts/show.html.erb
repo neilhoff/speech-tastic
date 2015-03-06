@@ -2,7 +2,6 @@
 <div id="post">
   <h1><%= @post.title %></h1>
   <p class="date"><%= @post.created_at.strftime('%B %e at %l:%M %p') %></p>
-  <%= image_tag "test-blog-image.png", class: "featured-image"%>
   <%= @post.content.html_safe %>
 
   <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default btn-edit" %>
