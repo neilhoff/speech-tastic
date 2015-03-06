@@ -15,6 +15,6 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require socialcount.min
-//= require ckeditor/config
 //= require ckeditor/init
+//= require ckeditor/config
 //= require_tree .
