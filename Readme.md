@@ -1,4 +1,6 @@
-=== Setup Cloudinary ===
+# Speech-Tastic
+
+### Setup Cloudinary
 
 - You need to go to your [Cloudinary console](https://cloudinary.com/console) and grab the Environment variable.
  - ![Cloudinary Console](app/assets/images/readme/cloudinary_console_sm.png)
