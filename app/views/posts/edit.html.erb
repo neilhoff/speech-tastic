@@ -2,7 +2,10 @@
     <h1>Editing post</h1>
 
     <%= render 'form' %>
-
-    <%= link_to 'Show', @post, class: "btn btn-warning btn-show" %>
+    <% if @post.published %>
+      <%= link_to 'Save and Publish', @post, class: "btn btn-success btn-show" %>
+    <% else %>
+      <%= link_to 'Save and Unpublish', @post, class: "btn btn-warning btn-show" %>
+    <% end %>
     <%= link_to 'Cancel', posts_path, class: "btn btn-danger btn-cancel" %>
 </div>
