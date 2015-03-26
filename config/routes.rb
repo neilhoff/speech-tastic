@@ -4,7 +4,16 @@ SpeechTastic::Application.routes.draw do
   resources :products, :path => "store"
   resources :products
 
-  resources :posts
+  resources :posts do
+    member do
+      put :publish
+      put :unpublish
+    end
+    collection do
+      get :all
+    end
+  end
+
 
   get "pages/about"
   get "pages/home"
