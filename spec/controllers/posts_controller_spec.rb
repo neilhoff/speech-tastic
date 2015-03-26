@@ -23,7 +23,7 @@ describe PostsController do
   # This should return the minimal set of attributes required to create a valid
   # Post. As you add validations to Post, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { title: Faker::Lorem.word, content: Faker::Lorem.paragraph  } }
+  let(:valid_attributes) { { title: Faker::Lorem.word, content: Faker::Lorem.paragraph, published: false  } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -154,6 +154,40 @@ describe PostsController do
       post = Post.create! valid_attributes
       delete :destroy, {:id => post.to_param}, valid_session
       expect(response).to redirect_to(posts_url)
+    end
+  end
+
+  describe "PUT publish" do
+    it "publishes the post" do
+      post = Post.create! valid_attributes
+      put :publish, {id: post.id}, valid_session
+
+      expect(post.reload.published).to equal(true)
+    end
+
+    it "redirects to the edit post path" do
+      post = Post.create! valid_attributes
+      put :publish, {id: post.id}, valid_session
+
+      expect(response).to redirect_to(edit_post_path(post))
+    end
+
+
+  end
+
+  describe "PUT unpublish" do
+    it "unplublishes the post" do
+      post = Post.create! valid_attributes
+      put :unpublish, {id: post.id}, valid_session
+
+      expect(post.reload.published).to equal(false)
+    end
+
+    it "redirects to the edit post path" do
+      post = Post.create! valid_attributes
+      put :unpublish, {id: post.id}, valid_session
+
+      expect(response).to redirect_to(edit_post_path(post))
     end
   end
 end
