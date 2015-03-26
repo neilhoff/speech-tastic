@@ -9,3 +9,18 @@
  - `export CLOUDINARY_URL=cloudinary://17.......`
 - Log out and log back in to see changes
  - To test run this: `echo $CLOUDINARY_URL`
+
+
+## Deployment
+
+### Staging
+
+- Staging is deployed to Heroku
+- URL: http://staging.speech-stastic.com
+- Deployment
+ - Pull down the latest code to the Master branch then run
+ - `git push heroku master`
+ - If there were database changes then run
+ - `heroku run rake db:migrate`
+
+
