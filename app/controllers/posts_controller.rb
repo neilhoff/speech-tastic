@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.published.order(created_at: :desc)
   end
 
   # GET /posts/1
@@ -83,6 +83,11 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def all
+    @posts = Post.all.order(created_at: :desc)
+    render action: 'index'
   end
 
   private

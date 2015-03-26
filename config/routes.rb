@@ -9,6 +9,9 @@ SpeechTastic::Application.routes.draw do
       put :publish
       put :unpublish
     end
+    collection do
+      get :all
+    end
   end
 
 

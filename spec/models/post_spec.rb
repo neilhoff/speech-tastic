@@ -5,6 +5,7 @@ describe Post do
     it "has a valid factory" do
       expect(create(:post)).to be_valid
     end
+
   end
 
   context "with invalid attributes" do
@@ -16,6 +17,11 @@ describe Post do
     end
   end
 
-
+  context "published scope" do
+    it "excludes posts that are not published" do
+      @post = create(:post, :published => false)
+      expect(Post.published).to_not include(@post)
+    end
+  end
 
 end

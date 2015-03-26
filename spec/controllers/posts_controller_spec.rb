@@ -23,7 +23,8 @@ describe PostsController do
   # This should return the minimal set of attributes required to create a valid
   # Post. As you add validations to Post, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { title: Faker::Lorem.word, content: Faker::Lorem.paragraph, published: false  } }
+  let(:valid_attributes) { { title: Faker::Lorem.word, content: Faker::Lorem.paragraph, published: true  } }
+  let(:more_valid_attributes){ { title: Faker::Lorem.word, content: Faker::Lorem.paragraph, published: false  } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -31,8 +32,9 @@ describe PostsController do
   let(:valid_session) { {} }
 
   describe "GET index" do
-    it "assigns all posts as @posts" do
+    it "assigns all published posts as @posts" do
       post = Post.create! valid_attributes
+      post2 = Post.create! more_valid_attributes # This one is not published show it will not show up in expect
       get :index, {}, valid_session
       expect(assigns(:posts)).to eq([post])
     end
@@ -188,6 +190,15 @@ describe PostsController do
       put :unpublish, {id: post.id}, valid_session
 
       expect(response).to redirect_to(edit_post_path(post))
+    end
+  end
+
+  describe "GET all" do
+    it "assigns all published posts as @posts" do
+      post = Post.create! valid_attributes
+      post2 = Post.create! more_valid_attributes # This one is not published
+      get :all, {}, valid_session
+      expect(assigns(:posts)).to eq([post2, post])
     end
   end
 end
