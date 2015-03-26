@@ -6,8 +6,8 @@ SpeechTastic::Application.routes.draw do
 
   resources :posts do
     member do
-      put :publish
-      put :unpublish
+      post :publish
+      post :unpublish
     end
     collection do
       get :all
