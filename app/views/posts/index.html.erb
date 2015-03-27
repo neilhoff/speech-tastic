@@ -17,15 +17,18 @@
 
           <div class="row">
             <div class="col-xs-2">
-              <ul class="socialcount socialcount-small" data-url="http://speech-tastic" data-counts="true" data-share-text="Speech-Tastic">
-                <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://speech-tastic" title="Share on Facebook"><span class="social-icon icon-facebook"></span><span class="count">Like</span></a></li>
-                <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://speech-tastic" title="Share on Twitter"><span class="social-icon icon-twitter"></span><span class="count">Tweet</span></a></li>
-                <li class="googleplus"><a href="https://plus.google.com/share?url=http://speech-tastic" title="Share on Google Plus"><span class="social-icon icon-googleplus"></span><span class="count">+1</span></a></li>
-                <li class="pinterest"><a title="Pin It"><span class="social-icon icon-pinterest"></span><span class="count">Pin It</span></a></li>
+              <ul class="social-buttons" data-url="http://www.speech-tastic.com" data-counts="true" data-share-text="<%= post.title %>">
+                <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.speech-tastic.com" title="Share on Facebook"><i class="fa fa-facebook"></i><span class="count"></span></a></li>
+                <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://www.speech-tastic.com" title="Share on Twitter"><i class="fa fa-twitter"></i><span class="count"></span></a></li>
+                <li class="googleplus"><a href="https://plus.google.com/share?url=http://www.speech-tastic.com" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span class="count"></span></a></li>
+                <li class="pinterest"><a title="Pin It"><i class="fa fa-pinterest-p"></i><span class="count"></span></a></li>
+                <li class="linkedin"><a href=""><i class="fa fa-linkedin"></i><span class="count"></span></a></li>
+
+
               </ul>
             </div>
             <div class="col-xs-10">
-              <div class="desc truncate lines-8">
+              <div class="desc truncate lines-10">
                 <%= post.content.html_safe %>
               </div>
             </div>

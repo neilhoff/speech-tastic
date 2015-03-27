@@ -13,34 +13,22 @@
 
 
     .desc {
-      font-size: 1.4em;
+      font-size: $post-content-font-size;
       margin-top: 0.8em;
     }
-
-    .socialcount {
-      max-width: 80px;
-      margin-top: 1em;
-     li {
-       margin: 0.5em 0;
-     }
-    }
-  }
-
-
-  .show-post {
-    @extend .center-block;
-    width: 600px;
-    .title {
-      @extend .text-center;
-    }
-    p.desc {
-      margin-top: 10px;
-      font-size: 1.4em;
-    }
-    .socialcount {
-      margin-top: 1em;
-      width: 335px;
-      @extend .center-block;
+    .social-buttons{
+      li {
+        list-style: none;
+        margin-top: 0.5em;
+        a {
+          background-color: $blue-gray;
+          color: #ffffff;
+          &:hover {
+            background-color: $pink;
+            color: white;
+          }
+        }
+      }
     }
   }
 }
@@ -48,20 +36,40 @@
 
 #post {
   @extend .center-block;
-  width: $content-width-large;
+  padding: 10px;
   h1 {
     @extend .text-center;
   }
   .date {
     @extend .text-center;
+    margin-bottom: 1em;
   }
-  .featured-image {
-    display: block;
-    margin: auto;
+  .post-content {
+    font-size: $post-content-font-size;
   }
 
   .btn-edit {
     margin-top: 10px;
+  }
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    width: $content-width-md;
+  }
+
+  @media (min-width: $screen-lg-min){
+    width: $content-width-lg;
+  }
+
+  .social-buttons{
+    li {
+      a {
+        background-color: $blue-gray;
+        color: #ffffff;
+        &:hover {
+          background-color: $pink;
+          color: white;
+        }
+      }
+    }
   }
 }
 
