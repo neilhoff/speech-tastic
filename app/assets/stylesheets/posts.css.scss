@@ -36,6 +36,7 @@
   }
   .date {
     @extend .text-center;
+    margin-bottom: 1em;
   }
   .post-content {
     font-size: $post-content-font-size;
@@ -50,6 +51,22 @@
 
   @media (min-width: $screen-lg-min){
     width: $content-width-lg;
+  }
+
+  .social-buttons{
+    li {
+      a {
+        background-color: $blue-gray;
+        color: #ffffff;
+        &:hover {
+          background-color: $pink;
+          color: white;
+        }
+      }
+
+
+    }
+
   }
 }
 
