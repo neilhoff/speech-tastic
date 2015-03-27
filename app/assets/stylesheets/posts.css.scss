@@ -6,16 +6,17 @@
     h2 {
       @extend .text-center;
     }
-    p.date {
+
+    .date {
       @extend .text-center;
     }
-    p.desc {
-      font-size: 1.4em;
-      margin-top: 10px;
-      max-height: 200px;
-      overflow: hidden;
 
+
+    .desc {
+      font-size: 1.4em;
+      margin-top: 0.8em;
     }
+
     .socialcount {
       max-width: 80px;
       margin-top: 1em;
@@ -24,6 +25,8 @@
      }
     }
   }
+
+
   .show-post {
     @extend .center-block;
     width: 600px;

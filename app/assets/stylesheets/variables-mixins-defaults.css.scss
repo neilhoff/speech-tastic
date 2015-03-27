@@ -239,3 +239,25 @@ ul.social-buttons {
   }
 }
 
+.truncate {
+  overflow: hidden;
+  position: relative;
+  &:after {
+    content:"";
+    height: 1em;
+    display: block;
+    width: 100%;
+    position:absolute;
+    background-color:white;
+    opacity: 0.8;
+    bottom: -0.3em
+  }
+}
+
+.lines-6 {
+  height: 9.2em;
+}
+
+.lines-8 {
+  height: 12.2em;
+}
