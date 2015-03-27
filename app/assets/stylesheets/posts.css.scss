@@ -16,13 +16,19 @@
       font-size: $post-content-font-size;
       margin-top: 0.8em;
     }
-
-    .socialcount {
-      max-width: 80px;
-      margin-top: 1em;
-     li {
-       margin: 0.5em 0;
-     }
+    .social-buttons{
+      li {
+        list-style: none;
+        margin-top: 0.5em;
+        a {
+          background-color: $blue-gray;
+          color: #ffffff;
+          &:hover {
+            background-color: $pink;
+            color: white;
+          }
+        }
+      }
     }
   }
 }
@@ -63,10 +69,7 @@
           color: white;
         }
       }
-
-
     }
-
   }
 }
 
