@@ -6,7 +6,7 @@ $font-header:             'Raleway', sans-serif;
 
 $h1-font:                 $font-header;
 $h1-font-weight:          100;
-$h1-font-size:            4em;
+$h1-font-size:            4.5em;
 
 $h2-font:                 $font-header;
 $h2-font-weight:          100;
@@ -24,6 +24,8 @@ $paragraph-font:          $font-default;
 $paragraph-font-weight:   400;
 $paragraph-font-size:     1em;
 
+$post-content-font-size:  1.4em;
+
 
 // Colors
 // Theme from: kuler.adobe.com/#themes/rating?time=30
@@ -38,8 +40,17 @@ $color-background:  #ffffff;
 $color-border:      lighten(#555555, 50%);
 
 // Sizes
+// screen-sizes
+$screen-xs-max:  480px;
+$screen-sm-min:  481px;
+$screen-sm-max:  768px;
+$screen-md-min:  769px;
+$screen-md-max: 1024px;
+$screen-lg-min: 1025px;
 
-$content-width-large: 960px;
+$content-width-sm: 480px;
+$content-width-md: 768px;
+$content-width-lg: 960px;
 
 // Mix-ins
 
@@ -230,7 +241,7 @@ ul.social-buttons {
 
 #post-form {
   @extend .center-block;
-  width: $content-width-large;
+  width: $content-width-lg;
   .btn-cancel {
     margin-top: 10px;
   }

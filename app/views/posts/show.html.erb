@@ -1,8 +1,11 @@
 
 <div id="post">
   <h1><%= @post.title %></h1>
-  <p class="date"><%= @post.created_at.strftime('%B %e at %l:%M %p') %></p>
-  <%= @post.content.html_safe %>
+  <div class="date"><%= @post.created_at.strftime('%B %e at %l:%M %p') %></div>
+  <hr>
+  <div class="post-content">
+    <%= @post.content.html_safe %>
+  </div>
 
   <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default btn-edit" %>
 </div>
