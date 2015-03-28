@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to @post, success: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @post, success: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -64,11 +64,11 @@ class PostsController < ApplicationController
   def publish
     respond_to do |format|
       if @post.update_attribute(:published, true)
-        format.html { redirect_to edit_post_path(@post), notice: 'Post was successfully published .' }
+        format.html { redirect_to edit_post_path(@post), success: 'Post was successfully published .' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity, error: 'Could not publish the post at this time. Please try again later.' }
       end
     end
   end
@@ -76,11 +76,11 @@ class PostsController < ApplicationController
   def unpublish
     respond_to do |format|
       if @post.update_attribute(:published, false)
-        format.html { redirect_to edit_post_path(@post), notice: 'Post was successfully unpublished.' }
+        format.html { redirect_to edit_post_path(@post), success: 'Post was successfully unpublished.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity,  error: 'Could not unpublish the post at this time. Please try again later.' }
       end
     end
   end
