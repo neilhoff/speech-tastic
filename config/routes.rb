@@ -1,5 +1,7 @@
 SpeechTastic::Application.routes.draw do
 
+  get "admin", to: "admin#index"
+
   devise_for :users
   mount Ckeditor::Engine => '/ckeditor'
   resources :products, :path => "store"
