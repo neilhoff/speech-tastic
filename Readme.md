@@ -1,6 +1,9 @@
 # Speech-Tastic
+Website to display Speech Therapy related blog posts and products.
 
-### Setup Cloudinary
+## Development System Setup
+
+#### Setup Cloudinary
 
 - You need to go to your [Cloudinary console](https://cloudinary.com/console) and grab the Environment variable.
  - ![Cloudinary Console](app/assets/images/readme/cloudinary_console_sm.png)
@@ -9,6 +12,10 @@
  - `export CLOUDINARY_URL=cloudinary://17.......`
 - Log out and log back in to see changes
  - To test run this: `echo $CLOUDINARY_URL`
+
+### Connect to Heroku
+
+- Staging  `heroku git:remote -a frozen-plateau-7971`
 
 
 ## Deployment
