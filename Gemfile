@@ -23,6 +23,9 @@ gem 'cloudinary'
 gem 'ckeditor', '4.1.0'
 gem 'mini_magick'
 
+# User Management
+gem 'devise'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

@@ -1,5 +1,6 @@
 SpeechTastic::Application.routes.draw do
 
+  devise_for :users
   mount Ckeditor::Engine => '/ckeditor'
   resources :products, :path => "store"
   resources :products
