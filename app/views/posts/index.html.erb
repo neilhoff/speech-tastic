@@ -9,7 +9,7 @@
         </div>
       </div>
 
-      <% if user_signed_in? %>
+      <% if can? :create, @post %>
         <%= link_to 'New Post', new_post_path, class: 'btn btn-success' %>
       <% end %>
 
@@ -40,10 +40,12 @@
 
 
 
-          <% if user_signed_in? %>
+          <% if can? :update, post %>
               <ul class="admin-edits">
                 <li><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-default' %></li>
-                <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></li>
+                <% if can? :delete, post %>
+                    <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></li>
+                <% end %>
               </ul>
           <% end %>
 

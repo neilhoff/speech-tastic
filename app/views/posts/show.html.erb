@@ -18,7 +18,7 @@
     <%= @post.content.html_safe %>
   </div>
 
-  <% if user_signed_in? %>
+  <% if can? :update, @post %>
     <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default btn-edit" %>
   <% end %>
 
