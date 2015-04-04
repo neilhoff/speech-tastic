@@ -8,6 +8,7 @@ class Ability
         can :manage, :all
     else
       can :read, Post, :published => true
+      can :read, Product
     end
 
 
