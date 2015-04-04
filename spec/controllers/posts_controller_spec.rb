@@ -26,16 +26,19 @@ describe PostsController do
   let(:valid_attributes) { { title: Faker::Lorem.word, content: Faker::Lorem.paragraph, published: true  } }
   let(:more_valid_attributes){ { title: Faker::Lorem.word, content: Faker::Lorem.paragraph, published: false  } }
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # PostsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  describe "authentication" do
+    login_admin
+    it "should have a current_user" do
+      expect(subject.current_user).to_not be_nil
+    end
+  end
+
 
   describe "GET index" do
     it "assigns all published posts as @posts" do
-      post = Post.create! valid_attributes
+      post = Post.create!  valid_attributes
       post2 = Post.create! more_valid_attributes # This one is not published show it will not show up in expect
-      get :index, {}, valid_session
+      get :index, {}
       expect(assigns(:posts)).to eq([post])
     end
   end
@@ -43,64 +46,71 @@ describe PostsController do
   describe "GET show" do
     it "assigns the requested post as @post" do
       post = Post.create! valid_attributes
-      get :show, {:id => post.to_param}, valid_session
+      get :show, {:id => post.to_param}
       expect(assigns(:post)).to eq(post)
     end
   end
 
   describe "GET new" do
+    login_admin
     it "assigns a new post as @post" do
-      get :new, {}, valid_session
+      get :new, {}
       expect(assigns(:post)).to be_a_new(Post)
     end
   end
 
   describe "GET edit" do
+    login_admin
     it "assigns the requested post as @post" do
       post = Post.create! valid_attributes
-      get :edit, {:id => post.to_param}, valid_session
+      get :edit, {:id => post.to_param}
       expect(assigns(:post)).to eq(post)
     end
   end
 
   describe "POST create" do
+
     describe "with valid params" do
+      login_admin
       it "creates a new Post" do
         expect {
-          post :create, {:post => valid_attributes}, valid_session
+          post :create, {:post => valid_attributes}
         }.to change(Post, :count).by(1)
+
       end
 
       it "assigns a newly created post as @post" do
-        post :create, {:post => valid_attributes}, valid_session
+        post :create, {:post => valid_attributes}
         expect(assigns(:post)).to be_a(Post)
         expect(assigns(:post)).to be_persisted
       end
 
       it "redirects to the created post" do
-        post :create, {:post => valid_attributes}, valid_session
+        post :create, {:post => valid_attributes}
         expect(response).to redirect_to(Post.last)
       end
     end
 
     describe "with invalid params" do
+      login_admin
       it "assigns a newly created but unsaved post as @post" do
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
-        post :create, {:post => { "title" => "invalid value" }}, valid_session
+        post :create, {:post => { "title" => "invalid value" }}
         expect(assigns(:post)).to be_a_new(Post)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
-        post :create, {:post => { "title" => "invalid value" }}, valid_session
+        post :create, {:post => { "title" => "invalid value" }}
         expect(response).to render_template("new")
       end
     end
   end
 
   describe "PUT update" do
+    login_admin
     describe "with valid params" do
       it "updates the requested post" do
         post = Post.create! valid_attributes
@@ -109,18 +119,18 @@ describe PostsController do
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Post.any_instance.should_receive(:update).with({ "title" => "MyString" })
-        put :update, {:id => post.to_param, :post => { "title" => "MyString" }}, valid_session
+        put :update, {:id => post.to_param, :post => { "title" => "MyString" }}
       end
 
       it "assigns the requested post as @post" do
         post = Post.create! valid_attributes
-        put :update, {:id => post.to_param, :post => valid_attributes}, valid_session
+        put :update, {:id => post.to_param, :post => valid_attributes}
         expect(assigns(:post)).to eq(post)
       end
 
       it "redirects to the post" do
         post = Post.create! valid_attributes
-        put :update, {:id => post.to_param, :post => valid_attributes}, valid_session
+        put :update, {:id => post.to_param, :post => valid_attributes}
         expect(response).to redirect_to(post)
       end
     end
@@ -130,7 +140,7 @@ describe PostsController do
         post = Post.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
-        put :update, {:id => post.to_param, :post => { "title" => "invalid value" }}, valid_session
+        put :update, {:id => post.to_param, :post => { "title" => "invalid value" }}
         expect(assigns(:post)).to eq(post)
       end
 
@@ -138,38 +148,40 @@ describe PostsController do
         post = Post.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
-        put :update, {:id => post.to_param, :post => { "title" => "invalid value" }}, valid_session
+        put :update, {:id => post.to_param, :post => { "title" => "invalid value" }}
         expect(response).to render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
+    login_admin
     it "destroys the requested post" do
       post = Post.create! valid_attributes
       expect {
-        delete :destroy, {:id => post.to_param}, valid_session
+        delete :destroy, {:id => post.to_param}
       }.to change(Post, :count).by(-1)
     end
 
     it "redirects to the posts list" do
       post = Post.create! valid_attributes
-      delete :destroy, {:id => post.to_param}, valid_session
+      delete :destroy, {:id => post.to_param}
       expect(response).to redirect_to(posts_url)
     end
   end
 
   describe "PUT publish" do
+    login_admin
     it "publishes the post" do
       post = Post.create! valid_attributes
-      put :publish, {id: post.id}, valid_session
+      put :publish, {id: post.id}
 
       expect(post.reload.published).to equal(true)
     end
 
     it "redirects to the edit post path" do
       post = Post.create! valid_attributes
-      put :publish, {id: post.id}, valid_session
+      put :publish, {id: post.id}
 
       expect(response).to redirect_to(edit_post_path(post))
     end
@@ -178,26 +190,28 @@ describe PostsController do
   end
 
   describe "PUT unpublish" do
+    login_admin
     it "unplublishes the post" do
       post = Post.create! valid_attributes
-      put :unpublish, {id: post.id}, valid_session
+      put :unpublish, {id: post.id}
 
       expect(post.reload.published).to equal(false)
     end
 
     it "redirects to the edit post path" do
       post = Post.create! valid_attributes
-      put :unpublish, {id: post.id}, valid_session
+      put :unpublish, {id: post.id}
 
       expect(response).to redirect_to(edit_post_path(post))
     end
   end
 
   describe "GET all" do
+    login_admin
     it "assigns all published posts as @posts" do
       post = Post.create! valid_attributes
       post2 = Post.create! more_valid_attributes # This one is not published
-      get :all, {}, valid_session
+      get :all, {}
       expect(assigns(:posts)).to eq([post2, post])
     end
   end

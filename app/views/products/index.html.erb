@@ -10,9 +10,9 @@
         <h4 class="page-desc">Speech-Tastic prides itself in creating great teaching materials at a great price</h4>
       </div>
     </div>
-
-    <%= link_to 'New Product', new_product_path, class: 'btn btn-success'%>
-
+    <% if can? :create, Product %>
+        <%= link_to 'New Product', new_product_path, class: 'btn btn-success'%>
+    <% end %>
 
     <div class="product-group">
       <% @products.each do |product| %>
@@ -24,10 +24,14 @@
             </div>
 
             <a href="<%= product.link %>" class="btn btn-product">Learn More</a>
-            <ul class="admin-store-edits">
-              <li><%= link_to 'Edit', edit_product_path(product), class: 'btn btn-default' %></li>
-              <li><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></li>
-            </ul>
+            <% if can? :update, product %>
+                <ul class="admin-store-edits">
+                  <li><%= link_to 'Edit', edit_product_path(product), class: 'btn btn-default' %></li>
+                  <% if can? :delete, product %>
+                    <li><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></li>
+                  <% end %>
+                </ul>
+            <% end %>
           </div>
 
       <% end %>

@@ -8,7 +8,11 @@
           <h4 class="page-desc">Speech-Tastic prides itself in creating great teaching materials at a great price</h4>
         </div>
       </div>
-      <%= link_to 'New Post', new_post_path, class: 'btn btn-success' %>
+
+      <% if can? :create, Post %>
+        <%= link_to 'New Post', new_post_path, class: 'btn btn-success' %>
+      <% end %>
+
       <% @posts.each do |post| %>
       <div class="post">
         <div class="post-text">
@@ -36,16 +40,20 @@
 
 
 
+          <% if can? :update, post %>
+              <ul class="admin-edits">
+                <li><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-default' %></li>
+                <% if can? :delete, post %>
+                    <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></li>
+                <% end %>
+              </ul>
+          <% end %>
 
-          <ul class="admin-edits">
-            <li><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-default' %></li>
-            <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></li>
-          </ul>
         </div>
-
       </div>
 
-          <div class="clearfix"></div>
+      <div class="clearfix"></div>
+
       <% end %>
     </div>
 

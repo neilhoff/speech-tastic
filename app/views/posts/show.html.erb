@@ -18,7 +18,10 @@
     <%= @post.content.html_safe %>
   </div>
 
-  <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default btn-edit" %>
+  <% if can? :update, @post %>
+    <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default btn-edit" %>
+  <% end %>
+
 </div>
 
 
