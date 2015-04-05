@@ -1,0 +1,3 @@
+<h1 class="title"><%= link_to post.title, post %></h1>
+<div class="date"><%= post.created_at.strftime('%B %e at %l:%M %p') %></div>
+<%= render partial: 'shared/social_buttons', locals: { title: post.title } %>
