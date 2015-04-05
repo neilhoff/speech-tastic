@@ -87,6 +87,14 @@ h1 {
   font-family: $h1-font;
   font-weight: $h1-font-weight;
   font-size: $h1-font-size;
+  a {
+    color: $dark-blue;
+    text-decoration: none;
+    &:hover {
+      color: $pink;
+      text-decoration: none;
+    }
+  }
 }
 
 h2 {
@@ -99,13 +107,21 @@ h3 {
   font-family: $h3-font;
   font-weight: $h3-font-weight;
   font-size: $h3-font-size;
-  padding: 0.5em;
 }
 
 h4 {
   font-family: $h4-font;
   font-weight: $h4-font-weight;
   font-size: $h4-font-size;
+}
+
+a {
+  color: $light-blue;
+  text-decoration: none;
+  &:hover {
+    color: $pink;
+    text-decoration: none;
+  }
 }
 
 .navbar-brand {
@@ -146,8 +162,6 @@ h4 {
 }
 
 ul.admin-edits {
-  margin-top: 20px;
-  margin-right: 100px;
   float: right;
   li {
     display: inline;

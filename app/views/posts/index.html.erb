@@ -1,4 +1,4 @@
-<div class="container">
+ <div class="container">
     <div id="latest-posts">
       <div class="page-info">
         <div class="page-title-container">
@@ -14,47 +14,37 @@
       <% end %>
 
       <% @posts.each do |post| %>
-      <div class="post">
-        <div class="post-text">
-           <h2><%= link_to post.title, post %></h2>
-          <div class="date"><%= post.created_at.strftime('%B %e at %l:%M %p') %></div>
 
-          <div class="row">
-            <div class="col-xs-2">
-              <ul class="social-buttons" data-url="http://www.speech-tastic.com" data-counts="true" data-share-text="<%= post.title %>">
-                <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.speech-tastic.com" title="Share on Facebook"><i class="fa fa-facebook"></i><span class="count"></span></a></li>
-                <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://www.speech-tastic.com" title="Share on Twitter"><i class="fa fa-twitter"></i><span class="count"></span></a></li>
-                <li class="googleplus"><a href="https://plus.google.com/share?url=http://www.speech-tastic.com" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span class="count"></span></a></li>
-                <li class="pinterest"><a title="Pin It"><i class="fa fa-pinterest-p"></i><span class="count"></span></a></li>
-                <li class="linkedin"><a href=""><i class="fa fa-linkedin"></i><span class="count"></span></a></li>
+            <div class="post">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="title"><%= link_to post.title, post %></h1>
+                    <div class="date"><%= post.created_at.strftime('%B %e at %l:%M %p') %></div>
+
+                    <%= render partial: 'shared/social_buttons', locals: { title: post.title } %>
+                </div>
+                <div class="panel-body">
+                    <div class="post-content truncate lines-10">
+                      <%= post.content.html_safe %>
+                    </div>
+                </div>
+                  <div class="panel-footer">
+                    <%= link_to "Read More...", post %>
+                    <% if can? :update, post %>
+                        <ul class="admin-edits">
+                          <li><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-default' %></li>
+                          <% if can? :delete, post %>
+                              <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></li>
+                          <% end %>
+                        </ul>
+                    <% end %>
 
 
-              </ul>
-            </div>
-            <div class="col-xs-10">
-              <div class="desc truncate lines-10">
-                <%= post.content.html_safe %>
+                </div>
               </div>
-            </div>
           </div>
-
-
-
-          <% if can? :update, post %>
-              <ul class="admin-edits">
-                <li><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-default' %></li>
-                <% if can? :delete, post %>
-                    <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></li>
-                <% end %>
-              </ul>
-          <% end %>
-
-        </div>
-      </div>
-
-      <div class="clearfix"></div>
-
       <% end %>
     </div>
+ </div>
 
-</div>
+
