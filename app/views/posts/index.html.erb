@@ -18,18 +18,14 @@
             <div class="post">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="title"><%= link_to post.title, post %></h1>
-                    <div class="date"><%= post.created_at.strftime('%B %e at %l:%M %p') %></div>
-
-                    <%= render partial: 'shared/social_buttons', locals: { title: post.title } %>
+                    <%= render partial: 'shared/post_header', locals: {post: post} %>
                 </div>
                 <div class="panel-body">
                     <div class="post-content truncate lines-10">
                       <%= post.content.html_safe %>
                     </div>
-                </div>
-                  <div class="panel-footer">
-                    <%= link_to "Read More...", post %>
+
+                    <%= link_to "READ MORE", post %>
                     <% if can? :update, post %>
                         <ul class="admin-edits">
                           <li><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-default' %></li>

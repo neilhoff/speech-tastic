@@ -1,9 +1,6 @@
 
 <div class="post">
-  <h1 class="title"><%= @post.title %></h1>
-  <div class="date"><%= @post.created_at.strftime('%B %e at %l:%M %p') %></div>
-
-  <%= render partial: 'shared/social_buttons', locals: { title: @post.title } %>
+  <%= render partial: 'shared/post_header', locals: {post: @post} %>
 
   <hr>
   <div class="post-content">

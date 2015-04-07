@@ -15,6 +15,9 @@ describe Post do
     it "fails without content" do
       expect(build(:post, content: nil)).to have(1).errors_on(:content)
     end
+    it "fails without an admin" do
+      expect(build(:post, user_id: nil)).to have(1).errors_on(:user)
+    end
   end
 
   context "published scope" do
