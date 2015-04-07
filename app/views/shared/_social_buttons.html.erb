@@ -1,7 +1,7 @@
-<ul class="list-inline social-buttons" data-url="http://www.speech-tastic.com" data-counts="true" data-share-text="<%= title %>">
-  <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.speech-tastic.com" title="Share on Facebook"><i class="fa fa-facebook"></i><span class="count"></span></a></li>
-  <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://www.speech-tastic.com" title="Share on Twitter"><i class="fa fa-twitter"></i><span class="count"></span></a></li>
-  <li class="googleplus"><a href="https://plus.google.com/share?url=http://www.speech-tastic.com" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span class="count"></span></a></li>
+<ul class="list-inline social-buttons" data-url="<% url %>>" data-counts="true" data-share-text="<%= title %>">
+  <li class="facebook"><a href="<%="https://www.facebook.com/sharer/sharer.php?u=" + url %>" title="Share on Facebook"><i class="fa fa-facebook"></i><span class="count"></span></a></li>
+  <li class="twitter"><a href="<%= "https://twitter.com/intent/tweet?text=" + url %>" title="Share on Twitter"><i class="fa fa-twitter"></i><span class="count"></span></a></li>
+  <li class="googleplus"><a href="<%= "https://plus.google.com/share?url=" + url %>"  title="Share on Google Plus"><i class="fa fa-google-plus"></i><span class="count"></span></a></li>
   <li class="pinterest"><a title="Pin It"><i class="fa fa-pinterest-p"></i><span class="count"></span></a></li>
   <li class="linkedin"><a href=""><i class="fa fa-linkedin"></i><span class="count"></span></a></li>
 </ul>
