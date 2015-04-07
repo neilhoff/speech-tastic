@@ -23,8 +23,9 @@ describe PostsController do
   # This should return the minimal set of attributes required to create a valid
   # Post. As you add validations to Post, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { title: Faker::Lorem.word, content: Faker::Lorem.paragraph, published: true  } }
-  let(:more_valid_attributes){ { title: Faker::Lorem.word, content: Faker::Lorem.paragraph, published: false  } }
+  let(:user) {create :user}
+  let(:valid_attributes) { { title: Faker::Lorem.word, content: Faker::Lorem.paragraph, published: true, user_id: user.id  } }
+  let(:more_valid_attributes){ { title: Faker::Lorem.word, content: Faker::Lorem.paragraph, published: false, user_id: user.id   } }
 
   describe "authentication" do
     login_admin
@@ -96,15 +97,22 @@ describe PostsController do
       it "assigns a newly created but unsaved post as @post" do
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
-        post :create, {:post => { "title" => "invalid value" }}
+        post :create, {:post => { "title" => nil }}
         expect(assigns(:post)).to be_a_new(Post)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
-        post :create, {:post => { "title" => "invalid value" }}
+        post :create, {:post => { "title" => nil }}
         expect(response).to render_template("new")
+      end
+
+      it "fails without a user_id" do
+        Post.any_instance.stub(:save).and_return(false)
+        post :create, {:post => { user_id: nil }}
+        expect(assigns(:post)).to be_a_new(Post)
+
       end
     end
   end

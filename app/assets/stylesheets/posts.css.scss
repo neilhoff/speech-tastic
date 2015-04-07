@@ -5,10 +5,13 @@
 
 .post {
   @extend .center-block;
+  padding: 10px;
   .title {
     text-align: center;
   }
-  padding: 10px;
+  .author {
+    @extend .text-center;
+  }
   .date {
     @extend .text-center;
     margin-bottom: 1em;
