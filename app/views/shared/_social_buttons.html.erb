@@ -2,6 +2,6 @@
   <li class="facebook"><a href="<%="https://www.facebook.com/sharer/sharer.php?u=" + url %>" title="Share on Facebook"><i class="fa fa-facebook"></i><span class="count"></span></a></li>
   <li class="twitter"><a href="<%= "https://twitter.com/intent/tweet?text=" + url %>" title="Share on Twitter"><i class="fa fa-twitter"></i><span class="count"></span></a></li>
   <li class="googleplus"><a href="<%= "https://plus.google.com/share?url=" + url %>"  title="Share on Google Plus"><i class="fa fa-google-plus"></i><span class="count"></span></a></li>
-  <li class="pinterest"><a title="Pin It"><i class="fa fa-pinterest-p"></i><span class="count"></span></a></li>
-  <li class="linkedin"><a href=""><i class="fa fa-linkedin"></i><span class="count"></span></a></li>
+  
+  <li class="linkedin"><a href="<%= "https://www.linkedin.com/shareArticle?mini=true&url=" + url + "&title=" + title.gsub(" ", "%20") %>"><i class="fa fa-linkedin"></i><span class="count"></span></a></li>
 </ul>
