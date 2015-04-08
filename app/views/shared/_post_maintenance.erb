@@ -1,0 +1,13 @@
+<% if can? :update, post %>
+    <ul class="admin-edits">
+      <% if post.published %>
+          <li><%= link_to 'Unpublish', unpublish_post_path(post), method: :post, class: "btn btn-warning btn-show" %></li>
+      <% else %>
+          <li><%= link_to 'Publish', publish_post_path(post), method: :post, class: "btn btn-success btn-show" %></li>
+      <% end %>
+      <li><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-default' %></li>
+      <% if can? :delete, post %>
+          <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></li>
+      <% end %>
+    </ul>
+<% end %>
