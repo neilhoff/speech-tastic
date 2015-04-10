@@ -26,14 +26,7 @@
                     </div>
 
                     <%= link_to "READ MORE", post %>
-                    <% if can? :update, post %>
-                        <ul class="admin-edits">
-                          <li><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-default' %></li>
-                          <% if can? :delete, post %>
-                              <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></li>
-                          <% end %>
-                        </ul>
-                    <% end %>
+                    <%= render partial: "shared/post_maintenance", locals: {post: post} %>
 
 
                 </div>
