@@ -27,6 +27,9 @@ gem 'mini_magick'
 gem 'devise'
 gem 'cancancan'
 
+# Friendly Urls
+gem 'friendly_id'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -60,7 +63,7 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '2.14.1' # Needed because a bug causes the Controller Macros to fail.  See: https://github.com/rspec/rspec-rails/issues/1351
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
