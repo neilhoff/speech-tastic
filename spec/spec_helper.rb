@@ -31,7 +31,6 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
-
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end
@@ -63,4 +62,8 @@ RSpec.configure do |config|
 
   config.include Devise::TestHelpers, :type => :controller
   config.extend ControllerMacros, type: :controller
+
+  # Enable File-type inference. This is disabled by default in RSpec 3
+  config.infer_spec_type_from_file_location!
+
 end

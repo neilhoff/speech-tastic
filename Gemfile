@@ -63,7 +63,7 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails', '2.14.1' # Needed because a bug causes the Controller Macros to fail.  See: https://github.com/rspec/rspec-rails/issues/1351
+  gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
@@ -86,3 +86,4 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'transpec'
