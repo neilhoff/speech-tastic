@@ -88,14 +88,14 @@ describe ProductsController do
       login_admin
       it "assigns a newly created but unsaved product as @product" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Product.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Product).to receive(:save).and_return(false)
         post :create, {:product => { "title" => "invalid value" }}
         expect(assigns(:product)).to be_a_new(Product)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Product.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Product).to receive(:save).and_return(false)
         post :create, {:product => { "title" => "invalid value" }}
         expect(response).to render_template("new")
       end
@@ -111,7 +111,7 @@ describe ProductsController do
         # specifies that the Product created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Product.any_instance.should_receive(:update).with({ "title" => "MyString" })
+        expect_any_instance_of(Product).to receive(:update).with({ "title" => "MyString" })
         put :update, {:id => product.to_param, :product => { "title" => "MyString" }}
       end
 
@@ -133,7 +133,7 @@ describe ProductsController do
       it "assigns the product as @product" do
         product = Product.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Product.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Product).to receive(:save).and_return(false)
         put :update, {:id => product.to_param, :product => { "title" => "invalid value" }}
         expect(assigns(:product)).to eq(product)
       end
@@ -141,7 +141,7 @@ describe ProductsController do
       it "re-renders the 'edit' template" do
         product = Product.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Product.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Product).to receive(:save).and_return(false)
         put :update, {:id => product.to_param, :product => { "title" => "invalid value" }}
         expect(response).to render_template("edit")
       end

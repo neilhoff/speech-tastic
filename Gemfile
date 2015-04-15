@@ -64,6 +64,8 @@ end
 
 group :test do
   gem 'rspec-rails'
+  gem 'rspec-collection_matchers'
+
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
@@ -86,4 +88,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'transpec'

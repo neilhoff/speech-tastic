@@ -96,20 +96,20 @@ describe PostsController do
       login_admin
       it "assigns a newly created but unsaved post as @post" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Post.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Post).to receive(:save).and_return(false)
         post :create, {:post => { "title" => nil }}
         expect(assigns(:post)).to be_a_new(Post)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Post.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Post).to receive(:save).and_return(false)
         post :create, {:post => { "title" => nil }}
         expect(response).to render_template("new")
       end
 
       it "fails without a user_id" do
-        Post.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Post).to receive(:save).and_return(false)
         post :create, {:post => { user_id: nil }}
         expect(assigns(:post)).to be_a_new(Post)
 
@@ -126,7 +126,7 @@ describe PostsController do
         # specifies that the Post created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Post.any_instance.should_receive(:update).with({ "title" => "MyString" })
+        expect_any_instance_of(Post).to receive(:update).with({ "title" => "MyString" })
         put :update, {:id => post.to_param, :post => { "title" => "MyString" }}
       end
 
@@ -147,7 +147,7 @@ describe PostsController do
       it "assigns the post as @post" do
         post = Post.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Post.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Post).to receive(:save).and_return(false)
         put :update, {:id => post.to_param, :post => { "title" => "invalid value" }}
         expect(assigns(:post)).to eq(post)
       end
@@ -155,7 +155,7 @@ describe PostsController do
       it "re-renders the 'edit' template" do
         post = Post.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Post.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Post).to receive(:save).and_return(false)
         put :update, {:id => post.to_param, :post => { "title" => "invalid value" }}
         expect(response).to render_template("edit")
       end
