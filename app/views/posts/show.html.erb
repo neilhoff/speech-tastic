@@ -7,7 +7,7 @@
     <%= @post.content.html_safe %>
   </div>
 
-  <div>Tags: <%= render @post.tags %></div>
+
 
   <% if can? :update, @post %>
     <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default btn-edit" %>

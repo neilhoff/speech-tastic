@@ -15,13 +15,16 @@
       <label for="title">Title</label>
       <%= f.text_field :title, class: "form-control", id: "title"%>
     </div>
-
+    <div class="form-group">
+      <label for="tag_list">Tags (comma delmited)</label>
+      <%= f.text_field :tag_list, class: "form-control", id: "tag_list" %>
+    </div>
     <div class="form-group">
       <label for="content">Content</label>
       <%= f.cktext_area :content, class: "form-control", id: "content"%>
     </div>
 
-    <%= f.text_field :tag_list %>
+
 
     <%= f.submit class: "btn btn-success" %>
 
