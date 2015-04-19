@@ -7,6 +7,7 @@ SpeechTastic::Application.routes.draw do
   resources :products, :path => "store"
   resources :products
 
+  resources :tags, only: [:index, :show]
   resources :posts do
     member do
       post :publish

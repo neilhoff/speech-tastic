@@ -30,6 +30,9 @@ gem 'cancancan'
 # Friendly Urls
 gem 'friendly_id'
 
+# Tagging
+gem 'acts-as-taggable-on'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

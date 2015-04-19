@@ -13,26 +13,8 @@
         <%= link_to 'New Post', new_post_path, class: 'btn btn-success' %>
       <% end %>
 
-      <% @posts.each do |post| %>
+      <%= render @posts %>
 
-            <div class="post">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                    <%= render partial: 'shared/post_header', locals: {post: post} %>
-                </div>
-                <div class="panel-body">
-                    <div class="post-content truncate lines-10">
-                      <%= post.content.html_safe %>
-                    </div>
-
-                    <%= link_to "READ MORE", post %>
-                    <%= render partial: "shared/post_maintenance", locals: {post: post} %>
-
-
-                </div>
-              </div>
-          </div>
-      <% end %>
     </div>
  </div>
 
