@@ -1,0 +1,43 @@
+#tags-header{
+  margin-top: 10px;
+}
+
+#tags-index {
+  display: block;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  li {
+    list-style-type: none;
+  }
+  .tag-name {
+    font-size: 1.5em;
+  }
+  .tag-post {
+    text-indent: 0px;
+  }
+
+}
+
+.tags {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  .badge {
+    background-color: $light-blue;
+    @include transition(all, 0.3s);
+    &:hover {
+      background-color: $pink;
+    }
+  }
+}
+
+.panel > .panel-heading {
+  .badge {
+    background-color: $light-blue;
+    @include transition(all, 0.3s);
+    &:hover {
+      background-color: $pink;
+    }
+  }
+}

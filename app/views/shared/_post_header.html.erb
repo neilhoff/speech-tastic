@@ -3,4 +3,4 @@
 <div class="date"><%= post.created_at.strftime('%B %e at %l:%M %p') %></div>
 <%= render partial: 'shared/social_buttons', locals: { title: post.title, url: request.original_url } %>
 
-<div><%= render post.tags %></div>
+<div class="tags"><%= render post.tags %></div>

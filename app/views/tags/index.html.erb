@@ -1,2 +1,16 @@
-<h1>Tags</h1>
-Tags: <%= render @tags %>
+<div id="tags-header">
+  <div class="page-info">
+    <div class="page-title-container">
+      <h2 class="page-title circle-blue-gray">Tags</h2>
+    </div>
+  </div>
+</div>
+
+<ul id="tags-index">
+  <% @tags.each do |tag| %>
+    <li class="tag-name"><%= tag.name %></li>
+      <% posts_for(tag).each do |post| %>
+        <li class="tag-post"><%= link_to post.title, post %></li>
+      <% end %>
+  <% end %>
+</ul>
